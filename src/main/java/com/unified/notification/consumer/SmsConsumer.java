@@ -19,7 +19,7 @@ public class SmsConsumer {
         this.notificationService = notificationService;
     }
 
-    @KafkaListener(topics = "notifications_topic", groupId = "notification-group")
+    @KafkaListener(topics = "notifications_topic", groupId = "sms-group")
     public void listen(NotificationRequest request) {
         log.info("SMS Consumer received a message: {}", request);
 

@@ -19,7 +19,7 @@ public class EmailConsumer {
         this.notificationService = notificationService;
     }
 
-    @KafkaListener(topics = "notifications_topic", groupId = "notification-group")
+    @KafkaListener(topics = "notifications_topic", groupId = "email-group")
     public void listen(NotificationRequest request) {
         log.info("Email Consumer received a message: {}", request);
 
