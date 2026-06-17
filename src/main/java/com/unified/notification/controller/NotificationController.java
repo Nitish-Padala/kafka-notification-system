@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/notifications")
+@RequestMapping("http://localhost:8081/api/notifications/send")
 @RequiredArgsConstructor
 public class NotificationController {
 
