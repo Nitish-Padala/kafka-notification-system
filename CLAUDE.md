@@ -25,7 +25,8 @@ A production-ready notification system with three channels (Email, Push, SMS), p
 
 ## Current Progress
 - [x] Phase 1: Setup (Environment, Project Creation, Docker-Kafka, GitHub Push)
-- [ ] Phase 2: Kafka Producer (In Progress)
+- [x] Phase 2: Kafka Producer (Completed)
+- [ ] Phase 3: Notification Delivery Services (In Progress)
 
 ## Guidelines
 - **Teaching Mode:** Claude provides the code and comprehensive explanations (Why, How, Efficiency, and Alternatives). The user implements the code in the IDE.
