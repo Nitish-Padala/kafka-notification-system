@@ -34,3 +34,4 @@ build/
 
 # Ignore local configuration files containing secrets
 *.properties
+firebase-service-account.json
