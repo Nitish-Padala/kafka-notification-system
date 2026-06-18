@@ -11,10 +11,24 @@
 - Serialization: JsonSerializer converts Java objects to JSON bytes for Kafka.
 - Controller: @RestController + @PostMapping for receiving requests.
 
-## PHASE 3: DELIVERY SERVICES (EMAIL)
+## PHASE 3: EMAIL DELIVERY
 - Architecture: Service Pattern (Interface -> Implementation).
-- Loose Coupling: Consumers depend on NotificationService (Interface), not concrete classes.
+- Loose Coupling: Consumers depend on NotificationService (Interface).
 - Email Engine: spring-boot-starter-mail uses Jakarta Mail (SMTP protocol).
 - Auto-Config: spring.mail.* properties automatically configure JavaMailSender bean.
-- Consumer Groups: Each consumer needs a UNIQUE groupId (e.g., email-group, sms-group) to ensure every consumer receives every message.
-- Injection: Use @Qualifier when multiple beans implement the same interface.
+
+## PHASE 4: PUSH NOTIFICATIONS
+- Engine: Firebase Cloud Messaging (FCM).
+- Config: Service Account JSON key used for server-side authentication.
+- Device Token: Push requires a unique Registration Token per device.
+- Service Worker: `firebase-messaging-sw.js` is required for browser background delivery.
+
+## PHASE 5: SMS DELIVERY
+- Engine: Twilio SDK.
+- Authentication: Account SID and Auth Token.
+- Validation: Recipient must be in E.164 format (e.g., +91...).
+- Trial Mode: Restricted to verified phone numbers.
+
+## SECURITY & GIT
+- Secrets: Never commit keys to Git. Use `.gitignore` and `application.properties.example`.
+- Git Strategy: Push to feature branches, merge to main via Pull Requests.
