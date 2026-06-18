@@ -20,7 +20,7 @@ public class PushConsumer {
         this.notificationService = notificationService;
     }
 
-    @KafkaListener(topics = "notifications_topic", groupId = "notification-group")
+    @KafkaListener(topics = "notifications_topic", groupId = "push-group")
     public void listen(NotificationRequest request) {
         log.info("Push Consumer received a message: {}", request);
 
