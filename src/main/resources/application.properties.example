@@ -1,0 +1,14 @@
+# Generic Application Settings
+spring.application.name=notification
+server.port=8081
+
+# Email Server Configuration (Fill these in locally)
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=
+spring.mail.password=
+
+# Twilio Configuration (Fill these in locally)
+twilio.account.sid=
+twilio.auth.token=
+twilio.phone.number=

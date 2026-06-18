@@ -1,0 +1,20 @@
+# KAFKA NOTIFICATION SYSTEM - CHEAT SHEET
+
+## PHASE 1: SETUP
+- Tech Stack: Java 17, Spring Boot 3, Apache Kafka (Docker).
+- Docker: Use docker-compose for Zookeeper & Kafka (Local Broker).
+- Scaffolding: Spring Initializr -> Web, Kafka, Lombok.
+
+## PHASE 2: KAFKA PRODUCER
+- Workflow: API Request -> Controller -> Producer -> Kafka Topic.
+- DTO: NotificationRequest (recipient, message, channel).
+- Serialization: JsonSerializer converts Java objects to JSON bytes for Kafka.
+- Controller: @RestController + @PostMapping for receiving requests.
+
+## PHASE 3: DELIVERY SERVICES (EMAIL)
+- Architecture: Service Pattern (Interface -> Implementation).
+- Loose Coupling: Consumers depend on NotificationService (Interface), not concrete classes.
+- Email Engine: spring-boot-starter-mail uses Jakarta Mail (SMTP protocol).
+- Auto-Config: spring.mail.* properties automatically configure JavaMailSender bean.
+- Consumer Groups: Each consumer needs a UNIQUE groupId (e.g., email-group, sms-group) to ensure every consumer receives every message.
+- Injection: Use @Qualifier when multiple beans implement the same interface.
